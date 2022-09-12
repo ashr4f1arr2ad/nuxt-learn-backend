@@ -4,6 +4,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Api\V1\MyController;
+use App\Http\Controllers\CalendarController;
 use App\Http\Controllers\StripeController;
 
 /*
@@ -22,6 +23,8 @@ use App\Http\Controllers\StripeController;
 
 Route::post('tokens', [StripeController::class, 'stripes']);
 Route::get('card', [StripeController::class, 'getCard']);
+Route::post('calendar', [CalendarController::class, 'calendar']);
+Route::get('fetchData', [CalendarController::class, 'fetchData']);
 
 Route::prefix('auth')->group( function() {
     Route::post('login', [AuthController::class, 'store']);
